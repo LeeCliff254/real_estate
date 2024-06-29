@@ -1,7 +1,7 @@
 import React from 'react';
-
 const Home = () => {
   return (
+		<>
     <div className="bg-gray-100 min-h-screen">
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -121,6 +121,7 @@ const Home = () => {
         </div>
       </div>
     </div>
+		</>
   );
 };
 
