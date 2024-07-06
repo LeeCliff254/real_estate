@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useState, useContext } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { AppContext } from '../App';
 import {
   Dialog,
   DialogPanel,
@@ -39,7 +40,15 @@ function classNames(...classes) {
 }
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { loggedIn, accessToken, tokenExists } = useContext(AppContext);
+  const navigate = useNavigate();
+
+  function handleLogout(){
+    localStorage.clear();
+    navigate('/signin');
+    window.location.reload();
+  };
 
   return (
     <header className="bg-white">
@@ -116,9 +125,16 @@ export default function Header() {
           </a>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <NavLink to="/signin" className="text-sm font-semibold leading-6 text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </NavLink>
+          {
+            tokenExists ?
+              <NavLink onClick={handleLogout} className="text-sm font-semibold leading-6 text-gray-900">
+                Logout <span aria-hidden="true">&rarr;</span>
+              </NavLink>
+              :
+              <NavLink to="/signin" className="text-sm font-semibold leading-6 text-gray-900">
+                Sign In <span aria-hidden="true">&rarr;</span>
+              </NavLink>
+          }
         </div>
       </nav>
       <Dialog className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -190,12 +206,16 @@ export default function Header() {
                 </a>
               </div>
               <div className="py-6">
-                <NavLink
-                  to="/signin"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Log in
-                </NavLink>
+                {
+                  tokenExists ?
+                    <NavLink onClick={handleLogout} className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                      Logout
+                    </NavLink>
+                    :
+                    <NavLink to="/signup" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                      Sign In
+                    </NavLink>
+                }
               </div>
             </div>
           </div>

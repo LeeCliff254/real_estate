@@ -8,7 +8,39 @@ const Home = () => {
           {/* Section 1: Hero Section */}
           <div className="col-span-1 md:col-span-2 lg:col-span-3">
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img src="https://img.freepik.com/free-photo/analog-landscape-city-with-buildings_23-2149661456.jpg?ga=GA1.1.448795543.1719663894&semt=ais_user" alt="Hero" className="w-full h-64 sm:h-96 object-cover" />
+
+            <div id="demo" className="carousel slide h-1/2" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+              </div>
+
+            <div className="carousel-inner">
+                <div className="carousel-item active">
+                  <img src="https://i.pinimg.com/564x/57/39/c8/5739c86ffef8069f494933f5175b1013.jpg" alt="Los Angeles" className="d-block w-100"></img>
+                </div>
+                <div className="carousel-item">
+                  <img src="https://img.freepik.com/free-photo/analog-landscape-city-with-buildings_23-2149661455.jpg?ga=GA1.1.448795543.1719663894&semt=ais_user" alt="Chicago" className="d-block w-100"></img>
+                </div>
+                <div className="carousel-item">
+                  <img src="https://img.freepik.com/free-photo/3d-rendering-house-model_23-2150799711.jpg?ga=GA1.1.448795543.1719663894&semt=ais_user" alt="New York" className="d-block w-100"></img>
+                </div>
+              </div>
+              <button className="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span className="carousel-control-prev-icon"></span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </button>
+            </div>
+
+
+
+
+
+
+              {/* <img src="https://img.freepik.com/free-photo/analog-landscape-city-with-buildings_23-2149661456.jpg?ga=GA1.1.448795543.1719663894&semt=ais_user" alt="Hero" className="w-full h-64 sm:h-96 object-cover" /> */}
               <div className="p-6">
                 <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Find Your Dream Home</h1>
                 <p className="text-lg text-gray-600 mb-8">Discover properties that fit your lifestyle.</p>
