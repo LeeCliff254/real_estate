@@ -51,12 +51,12 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white">
+    <header className="bg-white sticky top-0 z-50">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <NavLink to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Keja Yetu</span>
-            <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+            <span className='text-3xl font-bold'>Keja Yetu</span>
           </NavLink>
         </div>
         <div className="flex lg:hidden">
@@ -120,9 +120,9 @@ export default function Header() {
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Marketplace
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Company
-          </a>
+          <NavLink to="/about" className="text-sm font-semibold leading-6 text-gray-900">
+            About Us
+          </NavLink>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           {
@@ -198,12 +198,12 @@ export default function Header() {
                 >
                   Marketplace
                 </a>
-                <a
-                  href="#"
+                <NavLink
+                  to="/about"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Company
-                </a>
+                  About Us
+                </NavLink>
               </div>
               <div className="py-6">
                 {

@@ -4,6 +4,7 @@ import Header from './Components/Header';
 import SignUp from './Components/SignUp';
 import SignIn from './Components/SignIn';
 import Home from './Components/Home';
+import AboutUs from './Components/AboutUs';
 import SellerDash from './Components/Dash/SellerDash';
 import ClientDash from './Components/Dash/ClientDash';
 import AccountType from './Components/AccountType';
@@ -22,6 +23,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup/step1" element={<AccountType />} />
